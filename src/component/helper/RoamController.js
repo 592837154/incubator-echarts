@@ -30,6 +30,10 @@ import * as interactionMutex from './interactionMutex';
  * @param {module:zrender/zrender~ZRender} zr
  */
 function RoamController(zr) {
+    let that = this;
+    window.zhukai.b = (e) => {
+        mousewheel.call(that, e);
+    }
 
     /**
      * @type {Function}
@@ -183,6 +187,7 @@ function mouseup(e) {
 }
 
 function mousewheel(e) {
+    window.zhukai.a = e
     var shouldZoom = isAvailableBehavior('zoomOnMouseWheel', e, this._opt);
     var shouldMove = isAvailableBehavior('moveOnMouseWheel', e, this._opt);
     var wheelDelta = e.wheelDelta;
